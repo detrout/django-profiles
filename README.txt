@@ -1,3 +1,9 @@
+This is a more maintained fork of James Bennet's django-profiles with Django 1.6 support.
+
+You can install it via ``pip`` using::
+
+    $ pip install django-profiles2
+
 ====================
 Django user profiles
 ====================
