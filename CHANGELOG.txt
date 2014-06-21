@@ -2,6 +2,12 @@
 django-profiles changelog
 =========================
 
+Version 0.5
+-----------
+
+* Django 1.6 Compatibility
+
+
 Version 0.3
 -----------
 
