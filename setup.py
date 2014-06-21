@@ -1,13 +1,13 @@
 from distutils.core import setup
 
-      version='0.2',
 setup(name='django-profiles2',
+      version='0.5',
       description='User-profile application for Django',
       author='James Bennett',
       author_email='james@b-list.org',
       mainteiner='flavio.curella@gmail.com',
       url='http://www.bitbucket.org/fcurella/django-profiles/wiki/',
-      download_url='http://www.bitbucket.org/fcurella/django-profiles/get/v0.2.gz',
+      download_url='http://www.bitbucket.org/fcurella/django-profiles/get/v0.5.gz',
       packages=['profiles'],
       classifiers=['Development Status :: 4 - Beta',
                    'Environment :: Web Environment',
