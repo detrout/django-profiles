@@ -1,4 +1,4 @@
-This is a more maintained fork of James Bennet's django-profiles with Django 1.6 support.
+This is a more maintained fork of James Bennet's django-profiles with Django 1.7 support.
 
 You can install it via ``pip`` using::
 
