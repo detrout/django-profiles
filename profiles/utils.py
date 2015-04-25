@@ -7,8 +7,9 @@ site-specific user profile model specified in the
 
 from django import forms
 from django.conf import settings
-from django.contrib.auth.models import SiteProfileNotAvailable
 from django.db.models import get_model
+
+from .exceptions import SiteProfileNotAvailable
 
 
 def get_profile_model():

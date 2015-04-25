@@ -1,11 +1,11 @@
 from distutils.core import setup
 
 setup(name='django-profiles2',
-      version='0.5',
+      version='0.6',
       description='User-profile application for Django',
       author='James Bennett',
       author_email='james@b-list.org',
-      mainteiner='flavio.curella@gmail.com',
+      maintainer='flavio.curella@gmail.com',
       url='http://www.bitbucket.org/fcurella/django-profiles/wiki/',
       download_url='http://www.bitbucket.org/fcurella/django-profiles/get/v0.5.gz',
       packages=['profiles'],
