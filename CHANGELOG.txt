@@ -5,7 +5,12 @@ django-profiles changelog
 Version 0.6
 -----------
 
-* Django 1.7 Comaptibility
+* Django 1.8 Compatibility
+
+Version 0.6
+-----------
+
+* Django 1.7 Compatibility
 
 
 Version 0.5
