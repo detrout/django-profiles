@@ -6,8 +6,8 @@ site-specific user profile model specified in the
 """
 
 from django import forms
+from django.apps import apps
 from django.conf import settings
-from django.db.models import get_model
 
 from .exceptions import SiteProfileNotAvailable
 
@@ -23,7 +23,7 @@ def get_profile_model():
     if (not hasattr(settings, 'AUTH_PROFILE_MODULE')) or \
            (not settings.AUTH_PROFILE_MODULE):
         raise SiteProfileNotAvailable
-    profile_mod = get_model(*settings.AUTH_PROFILE_MODULE.split('.'))
+    profile_mod = apps.get_model(*settings.AUTH_PROFILE_MODULE.split('.'))
     if profile_mod is None:
         raise SiteProfileNotAvailable
     return profile_mod
