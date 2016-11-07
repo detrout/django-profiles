@@ -9,7 +9,11 @@ from django import forms
 from django.apps import apps
 from django.conf import settings
 
-from .exceptions import SiteProfileNotAvailable
+# idea from https://bitbucket.org/psagers/django-auth-ldap/pull-requests/15/django-17-compatibility-for-using-custom/diff#chg-django_auth_ldap/backend.py
+try:
+    from django.contrib.auth.models import SiteProfileNotAvailable
+except ImportError:
+    SiteProfileNotAvailable = Exception
 
 
 def get_profile_model():
