@@ -3,6 +3,7 @@ Views for creating, editing and viewing site-specific user profiles.
 
 """
 
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
