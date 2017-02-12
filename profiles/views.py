@@ -24,7 +24,7 @@ def create_profile(request, form_class=None, success_url=None,
     exist.
     
     If the user already has a profile, as determined by
-    ``request.user.get_profile()``, a redirect will be issued to the
+    ``request.user.profile``, a redirect will be issued to the
     :view:`profiles.views.edit_profile` view. If no profile model has
     been specified in the ``AUTH_PROFILE_MODULE`` setting,
     ``django.contrib.auth.models.SiteProfileNotAvailable`` will be
@@ -76,7 +76,7 @@ def create_profile(request, form_class=None, success_url=None,
     
     """
     try:
-        profile_obj = request.user.get_profile()
+        profile_obj = request.user.profile
         return HttpResponseRedirect(reverse('profiles_edit_profile'))
     except ObjectDoesNotExist:
         pass
@@ -123,7 +123,7 @@ def edit_profile(request, form_class=None, success_url=None,
     Edit the current user's profile.
     
     If the user does not already have a profile (as determined by
-    ``User.get_profile()``), a redirect will be issued to the
+    ``User.profile``), a redirect will be issued to the
     :view:`profiles.views.create_profile` view; if no profile model
     has been specified in the ``AUTH_PROFILE_MODULE`` setting,
     ``django.contrib.auth.models.SiteProfileNotAvailable`` will be
@@ -173,7 +173,7 @@ def edit_profile(request, form_class=None, success_url=None,
     
     """
     try:
-        profile_obj = request.user.get_profile()
+        profile_obj = request.user.profile
     except ObjectDoesNotExist:
         return HttpResponseRedirect(reverse('profiles_create_profile'))
     
@@ -261,9 +261,10 @@ def profile_detail(request, username, public_profile_field=None,
     :template:`profiles/profile_detail.html`.
     
     """
+    User = get_user_model()
     user = get_object_or_404(User, username=username)
     try:
-        profile_obj = user.get_profile()
+        profile_obj = user.profile
     except ObjectDoesNotExist:
         raise Http404
     if public_profile_field is not None and \

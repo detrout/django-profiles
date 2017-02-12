@@ -42,9 +42,8 @@ def get_profile_form():
     ``django.contrib.auth.models.SiteProfileNotAvailable``.
     
     """
-    profile_mod = get_profile_model()
     class _ProfileForm(forms.ModelForm):
         class Meta:
-            model = profile_mod
+            model = user.profile
             exclude = ('user',) # User will be filled in by the view.
     return _ProfileForm
