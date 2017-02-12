@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.template import RequestContext
 from django.views.generic.list import ListView
 
@@ -113,9 +113,7 @@ def create_profile(request, form_class=None, success_url=None,
     for key, value in extra_context.items():
         context[key] = callable(value) and value() or value
     
-    return render_to_response(template_name,
-                              { 'form': form },
-                              context_instance=context)
+    return render(request, template_name, { 'form': form })
 create_profile = login_required(create_profile)
 
 def edit_profile(request, form_class=None, success_url=None,
@@ -204,10 +202,9 @@ def edit_profile(request, form_class=None, success_url=None,
     for key, value in extra_context.items():
         context[key] = callable(value) and value() or value
     
-    return render_to_response(template_name,
-                              { 'form': form,
-                                'profile': profile_obj, },
-                              context_instance=context)
+    return render(request, template_name,
+                  { 'form': form,
+                    'profile': profile_obj, })
 edit_profile = login_required(edit_profile)
 
 def profile_detail(request, username, public_profile_field=None,
@@ -279,9 +276,7 @@ def profile_detail(request, username, public_profile_field=None,
     for key, value in extra_context.items():
         context[key] = callable(value) and value() or value
     
-    return render_to_response(template_name,
-                              { 'profile': profile_obj },
-                              context_instance=context)
+    return render(request, template_name, { 'profile': profile_obj })
 
 
 class ProfileListView(ListView):
