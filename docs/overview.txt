@@ -13,14 +13,15 @@ user profiles as painless as possible.
 Overview
 ========
 
-In order to provide site-specific, per-user information in addition to
-what's stored by the ``User`` model in ``django.contrib.auth``, Django
-allows the use of a "user profile" model, which should be specified as
-the value of the ``AUTH_PROFILE_MODULE`` setting. If you're unfamiliar
-with this process, documentation is available in the "Profiles"
-section of `Chapter 12 of the Django book`_. This application assumes
-that you have created a profile model for use on your site, and that
-you have filled in the ``AUTH_PROFILE_MODULE`` setting appropriately.
+Django removed profiles in Django 1.6, this version assumes your profile
+is a one-to-one model attached to the user model as profile.
+
+For example you have a profile class like this:
+
+.. highlight:: python
+
+  class UserProfiles(models.Model):
+      user = models.OneToOneField(User, related_name="profile")
 
 This application provides views which cover the primary aspects of
 using profiles:
