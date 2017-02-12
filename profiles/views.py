@@ -328,11 +328,8 @@ class ProfileListView(ListView):
     public_profile_field = None
     template_name = 'profiles/profile_list.html'
 
-    def get_model(self):
-        return utils.get_profile_model()
-
     def get_queryset(self):
-        queryset = self.get_model()._default_manager.all()
+        queryset = get_user_model().registrationprofile.get_queryset()
         if self.public_profile_field is not None:
             queryset = queryset.filter(**{self.public_profile_field: True})
         return queryset
