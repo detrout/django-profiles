@@ -16,8 +16,7 @@ except ImportError:
     SiteProfileNotAvailable = Exception
 
 
-
-def get_profile_form():
+def get_profile_form(user):
     """
     Return a form class (a subclass of the default ``ModelForm``)
     suitable for creating/editing instances of the site-specific user

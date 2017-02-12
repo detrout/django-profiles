@@ -94,7 +94,7 @@ def create_profile(request, form_class=None, success_url=None,
         success_url = reverse('profiles_profile_detail',
                               kwargs={ 'username': request.user.username })
     if form_class is None:
-        form_class = utils.get_profile_form()
+        form_class = utils.get_profile_form(request.user)
     if request.method == 'POST':
         form = form_class(data=request.POST, files=request.FILES)
         if form.is_valid():
@@ -187,7 +187,7 @@ def edit_profile(request, form_class=None, success_url=None,
         success_url = reverse('profiles_profile_detail',
                               kwargs={ 'username': request.user.username })
     if form_class is None:
-        form_class = utils.get_profile_form()
+        form_class = utils.get_profile_form(request.user)
     if request.method == 'POST':
         form = form_class(data=request.POST, files=request.FILES, instance=profile_obj)
         if form.is_valid():
